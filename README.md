@@ -1,28 +1,34 @@
-# KnowledgeVerse — Bilingual Learning Platform
+# KnowledgeVerse — GitHub Pages ready
 
-A responsive Bangla/English educational website built with HTML, CSS, and vanilla JavaScript. No backend or database is required.
+This folder contains the complete KnowledgeVerse website, including the 103-word vocabulary library.
 
-## Features
-- Searchable learning content
-- Learning dashboard and vocabulary library
-- Quizzes and daily learning content
-- Bookmarks and learning history saved in browser localStorage
-- Light/dark theme and responsive layout
+## Important GitHub Pages fix
+
+The JavaScript files (`data.js`, `script.js`, and `vocabulary.js`) are also copied into `public/`. Vite copies these files into the built `dist/` folder, so the classic script tags in `index.html` can load them on GitHub Pages.
+
+## Replace your GitHub repository files
+
+1. Download and extract this ZIP.
+2. Open the `knowledgeverse` folder inside it.
+3. Upload/replace the contents of that folder in your existing `knowledgeverse` GitHub repository. Keep the `.github/workflows/deploy.yml` file in your repository if it already exists.
+4. Make sure the repository's GitHub Pages deployment workflow runs `npm install` (or `npm ci` if a lock file exists), then `npm run build`, and publishes the `dist` folder.
+5. Wait for the GitHub Actions workflow to finish, then refresh the live website with Ctrl+F5.
+
+Do not upload the outer ZIP itself to the repository. Upload the files and folders inside the `knowledgeverse` folder.
 
 ## Run locally
-1. Install Node.js (LTS).
-2. Open this folder in a terminal.
-3. Run `npm install`.
-4. Run `npm run dev`.
-5. Open the local URL shown in the terminal.
 
-## Build for deployment
-Run `npm run build`. Vite creates the production site in the `dist/` folder.
+Install Node.js LTS, then in this folder run:
 
-## Deploy
-- **Netlify:** Import the Git repository; build command `npm run build`, publish directory `dist`.
-- **Vercel:** Import the Git repository; framework preset Vite, build command `npm run build`, output directory `dist`.
-- **GitHub Pages:** You can deploy the static `index.html`, CSS, and JS directly, or configure Vite's `base` setting if deploying under a repository subpath.
+```bash
+npm install
+npm run dev
+```
 
-## Portfolio note
-Add a project card with a live demo URL and this repository URL. Mention the technologies and features you implemented. User bookmarks/history are stored locally in each browser, not in a shared account.
+Build test:
+
+```bash
+npm run build
+```
+
+Expected build output: `dist/`. It should include `index.html`, `data.js`, `script.js`, `vocabulary.js`, and the CSS assets.
